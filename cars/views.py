@@ -13,6 +13,8 @@ def cars_list(request):
         cars = Car.objects.all()
         serializer = CarSerializer(cars, many=True)
         return Response(serializer.data)
+    
+    
     elif request.method == 'POST':
         serializer = CarSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
